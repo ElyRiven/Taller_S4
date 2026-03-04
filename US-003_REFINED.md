@@ -1,5 +1,11 @@
 # US-003 — Migración a Clean Architecture y Estabilización: consumer-worker
 
+## Justificación: Estado WIP por Limitaciones de Tiempo
+
+La migración del `consumer-worker` hacia una arquitectura limpia representa un esfuerzo significativo, ya que implica desacoplar múltiples capas y dependencias históricas del monolito original. Dada la complejidad técnica y la necesidad de mantener la estabilidad operativa del servicio, el equipo ha decidido abordar esta historia de usuario como un **Work In Progress (WIP)**. Esta decisión responde principalmente a la restricción de tiempo disponible en el ciclo actual, lo que hace inviable completar la migración total de arquitectura y la cobertura de todos los criterios de aceptación en un solo sprint.
+
+El enfoque WIP permite avanzar de manera incremental, priorizando la refactorización de los componentes más críticos y asegurando entregables funcionales y testeables en cada iteración. Así, se minimizan riesgos de regresión y se facilita la validación continua, sin comprometer la calidad ni la disponibilidad del servicio. Esta estrategia también habilita la retroalimentación temprana y la adaptación del plan conforme se identifican nuevos retos técnicos durante la migración.
+
 ## 1. Diagnóstico del Monolito Activo
 
 - **Problema detectado:** Aunque el `consumer-worker` aloja el endpoint `GET` (logrando CQRS a nivel microservicio), su lógica interna sigue fuertemente acoplada. El `KudoServiceImpl` depende directamente de Entidades JPA (`com.sofkianos.consumer.entity.Kudo`) y de modelos de paginación de Spring Data (`Page`, `Pageable`).
